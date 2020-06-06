@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title> Onde Tem?</title>
+  </head>
+  <body>
+    
+    <div class="site-branding-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="logo">
+                        <h1><a href="./index.html"><img src="img/logo.png"></a></h1>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div> <!-- End site branding area -->
+    
+
+
+		<ul id="itens"><ul>
+
+		Total: <span id="total"></span> 
+	
+	<script>
+ var total = 0; 
+ var i = 0;     
+ var valor = 0; 
+ 
+ for(i=1; i<=99; i++) 
+ {
+	 var prod = localStorage.getItem("produto" + i + ""); 
+	 if(prod != null) 
+	 {	
+		 
+		 document.getElementById("itens").innerHTML += localStorage.getItem("qtd" + i) + " x ";
+		 document.getElementById("itens").innerHTML += localStorage.getItem("produto" + i);
+		 document.getElementById("itens").innerHTML += " ";
+		 document.getElementById("itens").innerHTML += "R$: " + localStorage.getItem("valor" + i) ;
+		 document.getElementById("itens").innerHTML += " ";
+		 document.getElementById("itens").innerHTML += "" + localStorage.getItem("teste" + i)+ "<ul>";
+		 
+		 
+		 valor = parseFloat(localStorage.getItem("valor" + i)); 
+		 total = (total + valor); 
+	 }
+ } 
+
+ document.getElementById("total").innerHTML = total.toFixed(2); 
+</script>
+
+
+	
+  </body>
+</html>
